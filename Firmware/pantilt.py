@@ -7,7 +7,7 @@ bus = smbus.SMBus(1)
 addr = 0x40
 
 def scale(x, in_min, in_max, out_min, out_max):
-	return (x - in_min)*(out_max - out_min)/(in_max - in_min) + out_min
+	return int((x - in_min)*(out_max - out_min)/(in_max - in_min) + out_min)
 
 ## enable the PC9685 and enable autoincrement
 bus.write_byte_data(addr, 0, 0x20)
